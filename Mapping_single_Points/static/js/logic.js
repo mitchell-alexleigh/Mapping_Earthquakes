@@ -23,13 +23,13 @@ streets.addTo(map);
 //let marker = L.marker([34.0522, -118.2437]).addTo(map);
 
 //add circle marker
-/* let marker = L.circleMarker([34.0522, -118.2437], {
-    radius: 100}).addTo(map); */
+let marker = L.circleMarker([34.0522, -118.2437], {
+    radius: 100}).addTo(map);
 
 //skill drill circle marker
-let marker = L.circleMarker([34.0522, -118.2437], {
+/* let marker = L.circleMarker([34.0522, -118.2437], {
     radius: 30,
     stroke: true,
     color: '#FFFF00',
     fill: true,
-    fillOpacity: .5}).addTo(map);
+    fillOpacity: .5}).addTo(map); */
