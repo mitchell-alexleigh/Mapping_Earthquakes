@@ -1,8 +1,8 @@
 // Add console.log to check to see if our code is working.
 console.log("logic.js is running");
 
-// Create the map object with a center and zoom level.
-let map = L.map('mapid').setView([40.7, -94.5], 4);
+// Create the map object with center and zoom level.
+let map = L.map('mapid').setView([30, 30], 2);
 
 // Alt to setVeiw used for multiple layers or background image 
 /* let map = L.map("mapid", {
