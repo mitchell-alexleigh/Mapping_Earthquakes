@@ -17,11 +17,11 @@ attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap
     accessToken: API_KEY
 });
 
-// Accessing the airport GeoJSON URL
-let airportData = "https://raw.githubusercontent.com/mitchell-alexleigh//Mapping_Earthquakes/main/majorAirports.json";
-
 // adds 'graymap' tile layer to the map.
 streets.addTo(map);
+
+// Accessing the airport GeoJSON URL
+let airportData = "https://raw.githubusercontent.com/mitchell-alexleigh/Mapping_Earthquakes/Mapping_GeoJSON_Points/majorAirports.json";
 
 // Add GeoJSON data.
 let sanFranAirport =
@@ -61,9 +61,14 @@ let sanFranAirport =
     }
 }).addTo(map); */
 
-// Grabbing our GeoJSON data.
+//Grabbing our GeoJSON data.
 d3.json(airportData).then(function(data) {
     console.log(data);
   // Creating a GeoJSON layer with the retrieved data.
-    L.geoJson(data).addTo(map);
+    L.geoJson(data, {
+        onEachFeature: function(feature, layer){
+            console.log(layer);
+            layer.bindPopup("<h4> Airport Code: " + feature.properties.faa + "</h4> <hr> <h4> Airport Name: "+feature.properties.name +"</h4>");
+        }
+    }).addTo(map); 
 });
