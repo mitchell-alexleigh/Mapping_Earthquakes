@@ -1,8 +1,8 @@
 // Add console.log to check to see if our code is working.
 console.log("logic.js is running");
 
-// Create the map object with center at the San Francisco airport.
-let map = L.map('mapid').setView([37.5, -122.5], 10);
+// Create the map object with center and zoom level.
+let map = L.map('mapid').setView([30, 30], 2);
 
 // Alt to setVeiw used for multiple layers or background image 
 /* let map = L.map("mapid", {
@@ -16,6 +16,10 @@ attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap
     maxZoom: 18,
     accessToken: API_KEY
 });
+
+// Accessing the airport GeoJSON URL
+let airportData = "https://raw.githubusercontent.com/mitchell-alexleigh//Mapping_Earthquakes/main/majorAirports.json";
+
 // adds 'graymap' tile layer to the map.
 streets.addTo(map);
 
@@ -49,9 +53,17 @@ let sanFranAirport =
     }
 
 }).addTo(map); */
-L.geoJson(sanFranAirport, {
+// adds Sanfransisco Airport to the map
+/* L.geoJson(sanFranAirport, {
     onEachFeature: function(feature, layer){
         console.log(layer);
         layer.bindPopup("<h4> Airport Code: " + feature.properties.faa + "</h4> <hr> <h4> Airport Name: "+feature.properties.name +"</h4>");
     }
-}).addTo(map);
+}).addTo(map); */
+
+// Grabbing our GeoJSON data.
+d3.json(airportData).then(function(data) {
+    console.log(data);
+  // Creating a GeoJSON layer with the retrieved data.
+    L.geoJson(data).addTo(map);
+});
