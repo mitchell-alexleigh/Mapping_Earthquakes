@@ -18,8 +18,8 @@ attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap
 
 // Create the map object with center, zoom level and default layer.
 let map = L.map('mapid', {
-    center: [44.0, -80.0],
-    zoom: 2,
+    center: [43.7, -79.3],
+    zoom: 10,
     layers: [streets]
 })
 
@@ -36,7 +36,7 @@ streets.addTo(map);
 L.control.layers(baseMaps).addTo(map);
 
 // Accessing the Toronto neighborhoods GeoJSON URL.
-let torontoHoods = "https://raw.githubusercontent.com/mitchell-alexleigh/Mapping_Earthquakes/Mapping_GeoJSON_Linestrings/torontoRoutes.json"
+let torontoHoods = "https://raw.githubusercontent.com/mitchell-alexleigh/Mapping_Earthquakes/Mapping_GeoJSON_Polygons/torontoNeighborhoods.json"
 
 //creats airport map with markers and popups 
 /* d3.json(airportData).then(function(data) {
